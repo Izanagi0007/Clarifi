@@ -165,7 +165,7 @@ with col_chat:
         st.session_state.messages.append({"role": "user", "content": user_input})
 
         try:
-            url = "https://devflow.insync.top/webhook/5da33049-ce5f-488c-831d-ca488ee84773/chat"
+            url = "https://devflow.insync.top/webhook/b58598a0-22dd-4ae6-a4ec-ee2037988c75/chat"
             payload = {"query": user_input}
             # Ignore SSL verification (dev only)
             response = requests.post(url, json=payload, timeout=10, verify=False)
@@ -181,3 +181,4 @@ with col_chat:
         # Add assistant reply
         st.session_state.messages.append({"role": "assistant", "content": reply})
         st.rerun()
+
