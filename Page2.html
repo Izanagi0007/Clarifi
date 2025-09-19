@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizations</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fb;
+      color: #333;
+    }
+
+    header {
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #0073e6, #00c6ff);
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    header img {
+      max-height: 150px;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      margin: 10px 0 0 0;
+      font-size: 28px;
+    }
+
+    #search-container {
+      margin: 25px auto;
+      text-align: center;
+    }
+
+    #search-input {
+      padding: 12px;
+      width: 280px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    #search-btn {
+      padding: 12px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    #search-btn:hover {
+      background: #005bb5;
+      transform: scale(1.05);
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .org-card {
+      background: white;
+      padding: 20px;
+      width: 220px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease;
+    }
+
+    .org-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .org-card a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #0073e6;
+      font-weight: bold;
+      transition: 0.3s;
+      display: block;
+    }
+
+    .org-card a:hover {
+      color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Replace mascot.png with your APPSeCONNECT mascot image -->
+    <img src="APPSeCONNECT-The-Mascot.png" alt="APPSeCONNECT Mascot">
+    <h1>Select an Organization</h1>
+  </header>
+
+  <!-- Search Bar -->
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Search organizations">
+    <button id="search-btn" onclick="searchOrgs()">Search</button>
+  </div>
+
+  <!-- Organization List -->
+  <main id="org-list">
+    <div class="org-card"><a href="http://localhost:8501/" target="_blank">Aromatheraphy</a></div>
+    <div class="org-card"><a href="http://localhost:8501/" target="_blank">Common Project</a></div>
+    <div class="org-card"><a href="http://localhost:8501/" target="_blank">Text Book Centre</a></div>
+    <div class="org-card"><a href="http://localhost:8501/" target="_blank">Murray Motorsports</a></div>
+    <div class="org-card"><a href="http://localhost:8501/" target="_blank">AppSeConnect Partners</a></div>
+  </main>
+
+  <script>
+    function searchOrgs() {
+      let input = document.getElementById("search-input").value.toLowerCase();
+      let orgList = document.getElementById("org-list");
+      let cards = orgList.getElementsByClassName("org-card");
+
+      for (let i = 0; i < cards.length; i++) {
+        let link = cards[i].getElementsByTagName("a")[0];
+        let textValue = link.textContent || link.innerText;
+
+        if (textValue.toLowerCase().includes(input)) {
+          cards[i].style.display = "block";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
